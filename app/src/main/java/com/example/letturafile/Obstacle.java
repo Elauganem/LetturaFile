@@ -9,17 +9,17 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 
-public class Obstacle {
+class Obstacle {
     private int[][] mat= new int[30][16];
 
     private Context context;
 
-    public Obstacle(Context current){
+    Obstacle(Context current){
         this.context = current;
 
     }
 
-    public void readMap(){
+    void readMap(){
         InputStream is = context.getResources().openRawResource(R.raw.mappa);
         //getResources is a method that belongs to Activity class and it's used to read files from res file
         //we need to use context because Obstacle doesn't extend Activity
@@ -50,10 +50,10 @@ public class Obstacle {
         }
     }
 
-    public void stampMatrix(){
-        for(int i = 0; i < this.mat.length; i++) {
+    void stampMatrix(){
+        for (int[] ints : this.mat) { //foreach
             for (int j = 0; j < this.mat[0].length; j++)
-                System.out.print(mat[i][j]);
+                System.out.print(ints[j]);
             System.out.println("");
         }
     }
