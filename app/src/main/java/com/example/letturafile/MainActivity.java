@@ -8,13 +8,16 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //Obstacle obstacle = new Obstacle(this);
 
-        Obstacle obstacle = new Obstacle(this);
+        Obstacle.setContext(this);
+        Obstacle.readMap();
+        //Obstacle.createObstacles();
+        Obstacle.stampMatrix();
+        setContentView(new ColorRect(this));
+        //setContentView(R.layout.activity_main);
 
-        obstacle.readMap();
 
-        obstacle.stampMatrix();
     }
 
 }
